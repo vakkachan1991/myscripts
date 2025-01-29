@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Simple Service Status Checker
+echo "Enter the service name to check:"
+read service_name
+
+# Check if input is empty and exit if no service name is provided
+if [ -z "$service_name" ]; then
+    echo "Error: No service name entered!"
+    exit 1
+fi
+
+# Check service status
+if systemctl status "$service_name" 2>/dev/null | grep -q "running"; then
+    echo "✅ $service_name is running"
+else
+    echo "❌ $service_name is not running or not installed"
+fi
