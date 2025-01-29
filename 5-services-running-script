@@ -4,10 +4,10 @@
 services=("https" "nginx" "apache2" "NetworkManager")
 
 # Loop through each service and check if it's running
-for service_name in "${services[@]}"; do
-    if systemctl status "$service_name" | grep -q "running"; then
-        echo "✅ $service_name is running"
+for i in "${services[@]}"; do
+    if systemctl status "$i" | grep -q "running"; then
+        echo "✅ $i is running"
     else
-        echo "❌ $service_name is not running or not installed"
+        echo "❌ $i is not running or not installed"
     fi
 done
