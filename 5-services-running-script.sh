@@ -7,7 +7,7 @@
 ##########
 
 # Predefined list of services
-services=("https" "nginx" "apache2" "NetworkManager")
+services=("httpd" "nginx" "apache2" "NetworkManager")
 
 # Loop through each service and check if it's running
 for i in "${services[@]}"; do
