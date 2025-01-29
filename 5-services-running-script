@@ -1,4 +1,10 @@
 #!/bin/bash
+#########
+#Author:bivin
+#Date:sep 30 2024
+#this script outputs Node health
+#version:v1
+##########
 
 # Predefined list of services
 services=("https" "nginx" "apache2" "NetworkManager")
