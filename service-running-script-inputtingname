@@ -1,4 +1,10 @@
 #!/bin/bash
+#########
+#Author:bivin
+#Date:2022 March
+#this script outputs Node health
+#version:v2
+##########
 
 # Ask for input
 echo "Enter a service name:"
