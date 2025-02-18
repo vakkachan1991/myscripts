@@ -1,0 +1,39 @@
+---
+- name: Daily Linux Maintenance Tasks
+  hosts: all
+  become: yes  # Runs tasks as root
+
+  tasks:
+    - name: Update package lists  # Ensures latest package info
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages  # Installs available updates
+      apt:
+        upgrade: yes
+
+    - name: Ensure Apache is installed  # Checks if Apache is installed
+      apt:
+        name: apache2
+        state: present
+
+    - name: Restart Apache service if needed  # Ensures web server is running
+      service:
+        name: apache2
+        state: restarted
+
+    - name: Check CPU usage  # Monitors CPU utilization
+      shell: "top -bn1 | grep 'Cpu(s)'"
+      register: cpu_usage
+
+    - name: Display CPU usage  # Shows CPU usage in logs
+      debug:
+        msg: "{{ cpu_usage.stdout }}"
+
+    - name: Remove unnecessary packages  # Cleans up unused packages
+      apt:
+        autoremove: yes
+
+    - name: Clean APT cache  # Frees up disk space
+      apt:
+        autoclean: yes
