@@ -1,0 +1,19 @@
+---
+- name: Perform daily Windows maintenance tasks  # Play (List)
+  hosts: windows_servers
+  become: yes  # Run tasks with elevated privileges
+
+  tasks:  # List of tasks
+    - name: Install Windows Updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+        reboot: yes
+
+    - name: Check Disk Space
+      win_shell: "Get-PSDrive C | Select-Object Used, Free"
+      register: disk_space
+
+    - name: Restart Windows Server
+      win_reboot:
