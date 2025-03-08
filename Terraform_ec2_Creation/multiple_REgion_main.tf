@@ -8,7 +8,7 @@ provider "aws" {
     region = "us-west-1"  # Set your desired AWS region
 }
 
-resource "aws_instance" "example1" {
+resource "aws_instance" "bivin1" {
     ami           = "ami-04b4f1a9cf54c11d0"  # Specify an appropriate AMI ID
     instance_type = "t2.micro"
     subnet_id = "subnet-0387fb7ee4a3fbeb2"
@@ -20,7 +20,7 @@ tags = {
     }
 }
 
-resource "aws_instance" "example2" {
+resource "aws_instance" "bivin2" {
     ami           = "ami-04b4f1a9cf54c11d0"  # Specify an appropriate AMI ID
     instance_type = "t2.micro"
     subnet_id = "subnet-0387fb7ee4a3fbeb2"
